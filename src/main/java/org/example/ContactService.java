@@ -17,6 +17,7 @@ public class ContactService {
     private List<Contact> contacts = new ArrayList<>();
 
     private ContactsLoader loader;
+
     public ContactService(ContactsLoader loader) {
         this.loader = loader;
     }
