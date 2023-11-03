@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         ContactService service = context.getBean(ContactService.class);
-
         System.out.println("Чтобы добавить контакт в список контактов, введите команду \"add\" и контакт в формате" +
                 "\"ИМЯ;ТЕЛЕФОН;EMAIL\"" + "\n" + "Чтобы посмотреть весь список контактов, введите команду \"show contacts\"" + "\n" +
                 "Чтобы удалить контакт, введите команду \"delete\" и email контакта, который хотите удалить" + "\n" +
