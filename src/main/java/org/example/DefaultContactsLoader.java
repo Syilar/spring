@@ -11,7 +11,6 @@ public class DefaultContactsLoader implements ContactsLoader {
 
     @Override
     public List<Contact> loadContacts() {
-        System.out.println("dddddddddddd");
         return new ArrayList<>();
     }
 
