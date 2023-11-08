@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.ArrayList;
-
 import java.util.List;
 
 @Component
@@ -17,6 +16,7 @@ public class initContactsLoader implements ContactsLoader {
 
     @Override
     public List<Contact> loadContacts() {
+        System.out.println("Инициализация контактов через файл!");
         List<Contact> listContacts = new ArrayList<>();
 
         try (InputStream inputStream = new BufferedInputStream(new FileInputStream(contacts))) {

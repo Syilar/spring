@@ -1,6 +1,5 @@
 package org.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 @Component
 public class ContactService {
-    @Value("${app.contacts.savefile}")
+    @Value("${app.contacts.save-file}")
     private String fileListContacts;
     private List<Contact> contacts = new ArrayList<>();
 
@@ -24,7 +23,7 @@ public class ContactService {
 
     @PostConstruct
     public void initContacts() {
-        System.out.println("Инициализация контактов через файл!");
+
         contacts = loader.loadContacts();
     }
 
@@ -39,7 +38,7 @@ public class ContactService {
             System.out.println("Контакт добавлен!");
         }
         else {
-            System.out.println("Неверный формат ввода! Используй формат (Ф.И.О.;номер телефона;email");
+            System.out.println("Неверный формат ввода! Используй формат (Ф.И.О.;номер телефона;email)");
         }
     }
 
@@ -65,6 +64,7 @@ public class ContactService {
             for (Contact contact : contacts) {
                 fileWriter.write(contact.toString() + "\n");
             }
+            System.out.println("Все добавленные/измененные контакты были записаны в файл!");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
